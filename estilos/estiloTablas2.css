@@ -1,0 +1,116 @@
+body{
+    background:DarkBlue
+}
+div.contenedor{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color : white;
+    position: absolute;
+    top: 45%;
+    left:16%;
+    transform: translate(-50%, -50%);
+    width: 300px;/*Ancho*/
+    height: 280px;/*Alto*/ 
+    border-radius: 3%;
+}
+div.contenedordispositivos{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color : white;
+    position: absolute;
+    top: 100%;
+    left:16%;
+    transform: translate(-50%, -50%);
+    width: 300px;/*Ancho*/
+    /*height: 700px;/*Alto*/ 
+    border-radius: 3%;
+}
+
+input.campo{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1%;
+}
+input.campoActualiza{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+   margin: 3%;
+}
+#btnInsertar{
+    background-color: darkorange;
+    padding: 1.5%;
+    border-radius: 12px;
+    border-width: 2px;
+    margin-right: 10px;
+}
+#btnRegresar{
+    background-color: LightSeaGreen;
+    border-radius: 12px;
+    border-width: 2px;
+}
+div.contenedorMuestraClientes{
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    transform: bottom;
+    overflow: auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 30%;
+    left:65%;
+    transform: translate(-50%, -50%);
+    width: auto;/*Ancho*/
+    height: auto;/*Alto*/ 
+    }
+    
+div.contenedorMuestraOrdenes{
+background-color: white;
+border-radius: 15px;
+position: absolute;
+transform: bottom;
+overflow: auto;
+text-align: center;
+font-size: 20px;
+font-family: Arial, Helvetica, sans-serif;
+top: 95%;
+left:50%;
+transform: translate(-50%, -50%);
+width: 100%;/*Ancho*/
+
+}
+
+
+
+div.contenedorAmplio{
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    transform: bottom;
+    overflow: auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: auto;/*Ancho*/
+    height: auto;/*Alto*/ 
+    }
+#regresar{
+    margin: 10px;
+    background-color: lightsalmon;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+th.encabezado{
+    padding-left: 80px;
+    padding-right: 80px;
+    }
+    td.celdas{
+    padding-left: 90px;
+    padding-right: 90px; 
+    }
+    #fam{
+    font-family: Arial, Helvetica, sans-serif;
+    }

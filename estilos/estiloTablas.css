@@ -1,0 +1,186 @@
+body{
+    background:DarkBlue
+}
+div.contenedor{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color : white;
+    position: absolute;
+    top: 38%;
+    left:16%;
+    transform: translate(-50%, -50%);
+    width: 300px;/*Ancho*/
+    height:auto;/*Alto*/ 
+    border-radius: 1.5%;
+}
+
+div.contenedorOrdenes{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color : white;
+    position: absolute;
+    top: 60%;
+    left:16%;
+    transform: translate(-50%, -50%);
+    width: 300px;/*Ancho*/
+    height:auto;/*Alto*/ 
+    border-radius: 1.5%;
+}
+
+div.contenedordispositivos{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color : white;
+    position: absolute;
+    top: 90%;
+    left:16%;
+    transform: translate(-50%, -50%);
+    width: 300px;/*Ancho*/ 
+    border-radius: 0.5%;
+}
+
+#contenedorActualizarCliente{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: White;
+    position: absolute;
+    top: 25%;
+    left:75%;
+    transform: translate(-50%, -50%);
+    width: 600px;/*Ancho*/
+    height:100px;/*Alto*/ 
+    border-radius: 1%;
+}
+input.campo{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: auto;
+}
+.regresar{
+    border-radius: 3px;
+    background-color: CadetBlue;
+    border-color: CadetBlue;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+input.campoActualiza{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+   margin: 3%;
+}
+#btnInsertar{
+    background-color: darkorange;
+    padding: 1%;
+    border-radius: 1px;
+    border-width: 1.5px;
+    margin-right: 10px;
+}
+#btnRegresar{
+    background-color: LightSeaGreen;
+    border-radius: 12px;
+    border-width: 2px;
+}
+
+div.contenedorMuestraClientes{
+background-color: white;
+border-radius: 15px;
+position: absolute;
+transform: bottom;
+overflow: auto;
+text-align: center;
+font-size: 20px;
+font-family: Arial, Helvetica, sans-serif;
+top: 30%;
+left:65%;
+transform: translate(-50%, -50%);
+width: auto;/*Ancho*/
+height: auto;/*Alto*/ 
+}
+
+    
+div.contenedorMuestraOrdenes{
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    transform: bottom;
+    overflow: auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 75%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 100%;/*Ancho*/
+    
+    }
+
+    div.contenedorEliminar{
+        background-color: white;
+        border-radius: 15px;
+        position: absolute;
+        transform: bottom;
+        overflow: auto;
+        text-align: center;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 40%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width: 100%;/*Ancho*/
+        
+        }
+
+div.contenedorAmplio{
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    transform: bottom;
+    overflow: auto;
+    text-align: left;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 47%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: auto;/*Ancho*/
+    height: auto;/*Alto*/ 
+    }
+
+
+    div.contenedorMostrarTodo{
+        
+        background-color: white;
+        border-radius: 10px;
+        position: absolute;
+        transform: bottom;
+        overflow: auto;
+        text-align: left;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 47%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width: 100%;/*Ancho*/
+        
+        }
+
+#regresar{
+    margin: 10px;
+    background-color: lightsalmon;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+th.encabezado{
+    padding-left: 80px;
+    padding-right: 80px;
+    
+    }
+    td.celdas{
+    padding-left: 90px;
+    padding-right: 90px; 
+    }
+table{
+    margin: 0 auto;
+    
+}

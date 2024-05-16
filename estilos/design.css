@@ -1,0 +1,74 @@
+ /* Index */ 
+body{
+ background-color: Navy;
+}
+img.logo{
+    position: absolute;
+    top: 60%;
+    left:70%;
+    transform: translate(-50%, -50%);
+    width: 500px;/*Ancho*/
+    height: 500px;/*Alto*/   
+}
+#ini{
+    position: absolute;
+    top: 5%;
+    left:55%; 
+}
+#bienv{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 60px;
+}
+#mUs{
+    position: absolute;
+    top: 32%;
+    left:24%;
+    transform: translate(-50%, -50%);
+    width: 90px;/*Ancho*/
+    height: 90px;/*Alto*/   
+}
+table.datosIngresar{
+    position: absolute;
+    top: 30%;
+    left:13%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#ing{
+    margin: 10%;
+    padding: 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#enviar{
+    position: absolute;
+    top: 100%;
+    left:28%;
+    font-size: 20px;
+    background-color: white;
+    color: MidnightBlue;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 120px;/*Ancho*/
+    height: 40px;/*Alto*/ 
+}
+div.ConAcs{
+    background-color : white;
+    position: absolute;
+    top: 50%;
+    left:24%;
+    transform: translate(-50%, -50%);
+    width: 350px;/*Ancho*/
+    height: 350px;/*Alto*/ 
+    border-radius: 7%;
+}
+ /* Principal */ 
+ img.logoPrincipal{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 500px;/*Ancho*/
+    height: 500px;/*Alto*/   
+}
