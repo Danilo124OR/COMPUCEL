@@ -33,7 +33,6 @@
         <table id="TablaClientes" align='center'>
         </tr><th class="encabezado">ID de Pago</th>
         <th class="encabezado">Numero de orden</th>
-        <th class="encabezado"s>Id de cliente</th>
         <th class="encabezado"s>Nombre de Cliente</th>
         <th class="encabezado"s>Dispositivos</th>
         <th class="encabezado"s>Cantidad Reparada</th>

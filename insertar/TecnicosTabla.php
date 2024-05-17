@@ -19,7 +19,7 @@
             width: 100%; /* La tabla ocupa el 100% del ancho disponible de su contenedor */
         }
 
-        th, td {
+        th, .fila {
             border: 1px solid #dddddd; /* Define un borde de 1px sólido con el color #dddddd */
             text-align: left; /* Alinea el contenido de las celdas a la izquierda */
             padding: 8px; /* Espacio interno de 8px dentro de cada celda */
@@ -48,9 +48,9 @@ if ($result->num_rows > 0) {
         </tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-            <td>".$row["Id_tecnico"]."</td>
-            <td>".$row["Nombre_tecnico"]."</td>
-            <td>".$row["Teléfono"]."</td>
+            <td class:'fila'>".$row["Id_tecnico"]."</td>
+            <td class:'fila'>".$row["Nombre_tecnico"]."</td>
+            <td class:'fila'>".$row["Teléfono"]."</td>
         </tr>";
     }
     echo "</table>";

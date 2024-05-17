@@ -14,7 +14,7 @@
             <tr><td>
                 <label for="tipo_busqueda">Buscar por:</label>
                 <select id="tipo_busqueda" name="tipo_busqueda">
-                    <option value="id_pago">Numero de Orden</option>
+                    <option value="id_pago">Numero de Pago</option>
                     <option value="Nombre_cliente">Nombre del cliente</option>
                 </select><br><br>
             </td></tr>

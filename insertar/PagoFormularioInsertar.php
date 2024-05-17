@@ -25,13 +25,6 @@
                      <input type="text" id="no_orden" class="campo" name="no_orden" value=""><br><br>
                 </td></tr>
 
-                
-
-                <tr><td>
-                    <label for="id_cliente">ID de cliente</label><br>
-                    <input type="text" id="id_cliente" class="campo" name="Id_cliente" value=""><br><br>
-                </td></tr>
-
                 <tr><td>
                     <label for="nombre_cliente">Nombre del cliente</label><br>
                     <input type="text" id="nombre_cliente" class="campo" name="Nombre_cliente" value=""><br><br>
@@ -68,6 +61,7 @@
                     <input type="text" id="precio" class="campo" name="precio" value=""><br><br>
                 </td></tr>
 
+
                 <tr><td>
                     <label for="total">Total a Pagar</label><br>
                     <input type="text" id="total" class="campo" name="total" value=""><br><br>
@@ -83,7 +77,8 @@
             </Table>    
         </form>
     </div>
-    <?php include '../principal/menu.html'; ?>
     <?php include '../insertar/PagoTabla.php'; ?>
+
+    <?php include '../principal/menu.html'; ?>
 </body>
 </html>

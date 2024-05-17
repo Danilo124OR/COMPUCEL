@@ -34,11 +34,6 @@
                 <input type="text"name = "no_orden" readonly placeholder = "Numero de Orden" class = "campo" value = "<?php  if(isset($orden)){echo $orden;}?>">
                 </td></tr>
 
-
-                <tr><td>
-                <input type="text" name = "id_cliente" placeholder = "ID de Cliente" class = "campo" value = "<?php if(isset($idcliente)){echo $idcliente;}?>">
-                </td></tr>
-
                 <tr><td>
                 <input type="text" name = "Nombre_cliente" placeholder = "Nombre de Cliente" class = "campo" value = "<?php if(isset($nomcliente)){echo $nomcliente;}?>">
                 </td></tr>
@@ -48,11 +43,11 @@
                 </td></tr>
 
                 <tr><td>
-                <input type="text" name = "Cantidad_reparada" placeholder = "Cantidad Reparada" class = "campo" value = "<?php if(isset($cantidad)){echo $cantidad;}?>">
+                <input type="text" name = "Cantidad" placeholder = "Cantidad Reparada" class = "campo" value = "<?php if(isset($cantidad)){echo $cantidad;}?>">
                 </td></tr>
 
                 <tr><td>
-                <input type="text" name = "detalles_reparacion" placeholder = "Detalles de Reparación" class = "campo" value = "<?php if(isset($detalle)){echo $detalle;}?>">
+                <input type="text" name = "detalles" placeholder = "Detalles de Reparación" class = "campo" value = "<?php if(isset($detalle)){echo $detalle;}?>">
                 </td></tr>
 
                 <tr><td>
@@ -66,6 +61,7 @@
                 <tr><td>
                 <input type="text" name = "precio" placeholder = "Precio" class = "campo" value = "<?php if(isset($precio)){echo $precio;}?>">
                 </td></tr>
+
 
                 <tr><td>
                 <input type="text" name = "total" placeholder = "Total del Pago" class = "campo" value = "<?php if(isset($total)){echo $total;}?>">

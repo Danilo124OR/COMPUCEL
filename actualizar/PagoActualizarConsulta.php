@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['buscar'])) {
 
     // Consulta SQL según el tipo de búsqueda
     if ($tipo_busqueda == "id_pago") {
-        $sql = "SELECT id_pago, no_orden, Id_cliente, Nombre_cliente, Dispositivos, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE id_pago = ?";
+        $sql = "SELECT id_pago, no_orden, Nombre_cliente, Dispositivos, Cantidad, detalles, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE id_pago = ?";
     } else if ($tipo_busqueda == "Nombre_cliente") {
-        $sql = "SELECT id_pago, no_orden, Id_cliente, Nombre_cliente, Dispositivos, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE Nombre_cliente LIKE ?";
+        $sql = "SELECT id_pago, no_orden, Nombre_cliente, Dispositivos, Cantidad, detalles, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE Nombre_cliente LIKE ?";
         $valor_busqueda = "%" . $valor_busqueda . "%"; // Añadir comodines para búsqueda parcial
     }
 
@@ -31,11 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['buscar'])) {
         while($row = $result->fetch_assoc()) {
         $idpago = $row['id_pago'];   
         $orden = $row['no_orden'];
-        $idcliente = $row['Id_cliente'];
         $nomcliente = $row['Nombre_cliente'];
         $dis = $row['Dispositivos'];
-        $cantidad = $row['Cantidad_reparada'];
-        $detalle = $row['detalles_reparacion'];
+        $cantidad = $row['Cantidad'];
+        $detalle = $row['detalles'];
         $fecha = $row['Fecha_pago'];
         $hora = $row['Hora_pago'];
         $precio = $row['precio'];

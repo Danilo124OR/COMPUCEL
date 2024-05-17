@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta SQL según el tipo de búsqueda
     if ($tipo_busqueda == "id_pago") {
-        $sql = "SELECT id_pago, no_orden, Id_cliente, Nombre_cliente, Dispositivos, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE id_pago = ?";
+        $sql = "SELECT id_pago, no_orden, Nombre_cliente, Dispositivos, Cantidad, detalles, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE id_pago = ?";
     } else if ($tipo_busqueda == "Nombre_cliente") {
-        $sql = "SELECT id_pago, no_orden, Id_cliente, Nombre_cliente, Dispositivos, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE Nombre_cliente LIKE ?";
+        $sql = "SELECT id_pago, no_orden, Nombre_cliente, Dispositivos, Cantidad, detalles, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE Nombre_cliente LIKE ?";
         $valor_busqueda = "%" . $valor_busqueda . "%"; // Añadir comodines para búsqueda parcial
     }
     // Preparar la consulta
@@ -29,12 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td class='celdas'>" . $row["id_pago"] . "</td>";
-            echo "<td class='celdas'>" . $row["no_orden"] . "</td>"; // Acceder a la columna "id_cliente"
-            echo "<td class='celdas'>" . $row["Id_cliente"] . "</td>";
+            echo "<td class='celdas'>" . $row["no_orden"] . "</td>"; 
             echo "<td class='celdas'>" . $row["Nombre_cliente"] . "</td>";
             echo "<td class='celdas'>" . $row["Dispositivos"] . "</td>";
-            echo "<td class='celdas'>" . $row["Cantidad_reparada"] . "</td>";
-            echo "<td class='celdas'>" . $row["detalles_reparacion"] . "</td>";
+            echo "<td class='celdas'>" . $row["Cantidad"] . "</td>";
+            echo "<td class='celdas'>" . $row["detalles"] . "</td>";
             echo "<td class='celdas'>" . $row["Fecha_pago"] . "</td>";
             echo "<td class='celdas'>" . $row["Hora_pago"] . "</td>";
             echo "<td class='celdas'>" . $row["precio"] . "</td>";

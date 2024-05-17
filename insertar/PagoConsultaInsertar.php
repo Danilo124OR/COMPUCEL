@@ -6,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir los datos del formulario
     $id_pago = $_POST['id_pago'];
     $no_orden = $_POST['no_orden'];
-    $id_cliente = $_POST['Id_cliente'];
     $nombre_cliente = $_POST['Nombre_cliente'];
     $dis = $_POST['Dispositivos'];
     $detalle = $_POST['detalles_reparacion'];
@@ -26,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>alert('El Numero de orden ya existe.'); window.location.href = 'PagoFormularioInsertar.php';</script>";
         } else {
             // Preparar la consulta SQL para insertar datos
-            $sql = "INSERT INTO pagos (id_pago, no_orden, Id_cliente, Nombre_cliente, Dispositivos, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio, total) 
-            VALUES ('$id_pago', '$no_orden', '$id_cliente', '$nombre_cliente', '$dis', '$detalle', '$cantidad', '$fecha', '$hora', '$precio', '$total')";
+            $sql = "INSERT INTO pagos (id_pago, no_orden, Nombre_cliente, Dispositivos, Cantidad, detalles, Fecha_pago, Hora_pago, precio, total) 
+            VALUES ('$id_pago', '$no_orden', '$nombre_cliente', '$dis', '$cantidad', '$detalle', '$fecha', '$hora', '$precio', '$total')";
 
             // Ejecutar la consulta
             if ($conexion->query($sql) === TRUE) {

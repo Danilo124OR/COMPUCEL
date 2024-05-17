@@ -11,7 +11,6 @@
        <tr><table id="TablaClientes">
         <th class="encabezado">Id de Pago</th> 
         <th class="encabezado">Numero de Orden</th> 
-        <th class="encabezado">ID de cliente</th>
         <th class="encabezado">Nombre de Cliente</th>
         <th class="encabezado">Dispositivos</th>
         <th class="encabezado">Cantidad Reparada</th>

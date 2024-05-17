@@ -20,10 +20,10 @@
         }
 
         th, .fila {
-            border-top: 2px solid #dddddd; /* Aumentar el grosor del borde */
-            border-bottom: 2px solid #dddddd; /* Aumentar el grosor del borde */
+            border-top: 4px solid #dddddd; /* Aumentar el grosor del borde */
+            border-bottom: 4px solid #dddddd; /* Aumentar el grosor del borde */
             text-align: left; /* Alinea el contenido de las celdas a la izquierda */
-            padding: 8px; /* Espacio interno de 8px dentro de cada celda */
+            padding: 20px; /* Espacio interno de 8px dentro de cada celda */
         }
 
 

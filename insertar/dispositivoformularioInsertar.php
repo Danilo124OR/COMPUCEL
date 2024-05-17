@@ -91,8 +91,8 @@
             </Table>    
         </form>
     </div>
-    <?php include '../principal/menu.html'; ?>
     <?php include '../insertar/dispositivoTabla.php'; ?>
+    <?php include '../principal/menu.html'; ?>
 
 </body>
 </html>

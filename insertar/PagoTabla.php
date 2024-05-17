@@ -45,7 +45,6 @@ if ($result->num_rows > 0) {
     echo "<tr>
             <th class:'encabezado'>ID de Pago</th>
             <th class:'encabezado'>Numero de Orden</th>  
-            <th class:'encabezado'>Id de Cliente</th>
             <th class:'encabezado'>Cliente</th>
             <th class:'encabezado'>Dispositivos</th>
             <th class:'encabezado'>Cantidad Reparada</th>
@@ -59,11 +58,10 @@ if ($result->num_rows > 0) {
         echo "<tr>
             <td class:'fila'>".$row["id_pago"]."</td>
             <td class:'fila'>".$row["no_orden"]."</td>
-            <td class:'fila'>".$row["Id_cliente"]."</td>
             <td class:'fila'>".$row["Nombre_cliente"]."</td>
             <td class:'fila'>".$row["Dispositivos"]."</td>
-            <td class:'fila'>".$row["Cantidad_reparada"]."</td>
-            <td class:'fila'>".$row["detalles_reparacion"]."</td>
+            <td class:'fila'>".$row["Cantidad"]."</td>
+            <td class:'fila'>".$row["detalles"]."</td>
             <td class:'fila'>".$row["Fecha_pago"]."</td>
             <td class:'fila'>".$row["Hora_pago"]."</td>
             <td class:'fila'>".$row["precio"]."</td>

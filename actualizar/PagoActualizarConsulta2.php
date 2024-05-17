@@ -10,24 +10,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar'])) {
 
         // Recibir datos del formulario de actualización y validarlos
         $noorden = $_POST['no_orden'];
-        $idcliente = $_POST['Id_cliente'];
         $nomcliente = $_POST['Nombre_cliente'];
         $dis = $_POST['Dispositivos'];
-        $cantidad = $_POST['Cantidad_reparada'];
-        $detalle = $_POST['detalles_reparacion'];
+        $cantidad = $_POST['Cantidad'];
+        $detalle = $_POST['detalles'];
         $fecha = $_POST['Fecha_pago'];
         $hora = $_POST['Hora_pago'];
         $precio = $_POST['precio'];
+        $monto = $_POST['monto'];
+        $cambio = $_POST['cambio'];
         $total = $_POST['total'];
 
         // Validamos que los campos no estén vacíos
-        if(empty($noorden) || empty($idcliente) || empty($nomcliente) || empty($dis) || empty($cantidad) || empty($detalle) || empty($fecha) || empty($hora) || empty($precio) || empty($total) ) {
+        if(empty($noorden) || empty($nomcliente) || empty($dis) || empty($cantidad) || empty($detalle) || empty($fecha) || empty($hora) || empty($precio) || empty($monto) || empty($cambio) || empty($total) ) {
             echo "Por favor, complete todos los campos.";
         } else {
             // Escapamos los valores para evitar inyección de SQL
            
             $noorden = $conexion->real_escape_string($noorden);
-            $idcliente = $conexion->real_escape_string($idcliente);
             $nomcliente = $conexion->real_escape_string($nomcliente);
             $dis = $conexion->real_escape_string($dis);
             $cantidad = $conexion->real_escape_string($cantidad);
@@ -35,11 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar'])) {
             $fecha = $conexion->real_escape_string($fecha);
             $hora = $conexion->real_escape_string($hora);
             $precio = $conexion->real_escape_string($precio);
+
             $total = $conexion->real_escape_string($total);
            
 
             // Construir la consulta SQL para actualizar
-            $sql = "UPDATE pagos SET no_orden='$noorden', Id_cliente='$idcliente', Nombre_cliente='$nomcliente', Dispositivos='$dis', Cantidad_reparada='$cantidad', detalles_reparacion='$detalle', Fecha_pago='$fecha', Hora_pago='$hora', precio='$precio', total='$total' WHERE id_pago='$idpago'";
+            $sql = "UPDATE pagos SET no_orden='$noorden', Nombre_cliente='$nomcliente', Dispositivos='$dis', Cantidad='$cantidad', detalles='$detalle', Fecha_pago='$fecha', Hora_pago='$hora', precio='$precio', total='$total' WHERE id_pago='$idpago'";
 
             // Ejecutar la consulta y manejar errores
             if ($conexion->query($sql) === TRUE) {
