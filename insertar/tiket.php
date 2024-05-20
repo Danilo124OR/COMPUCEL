@@ -18,12 +18,12 @@ $resultado = $conexion->query($sqlVenta);
 $row_venta = $resultado->fetch_assoc();
 $orden = $row_venta['no_orden'];
 
-$sqlDetalle = "SELECT Cantidad, Dispositivos, detalles, Fecha_pago, Hora_pago, precio, total FROM pagos WHERE id_pago = $idVenta";
+$sqlDetalle = "SELECT * FROM pagos WHERE id_pago = $idVenta";
 $resultadoDetalle = $conexion->query($sqlDetalle);
 $row_ventaD = $resultadoDetalle->fetch_assoc();
 $total = number_format($row_ventaD['total'], 2, '.');
 
-$pdf = new FPDF('P', 'mm', array(80, 150));
+$pdf = new FPDF('P', 'mm', array(80, 200));
 $pdf->AddPage();
 $pdf->SetMargins(5, 5, 5);
 $pdf->SetFont('Arial', 'B', 9);
@@ -49,13 +49,13 @@ $pdf->SetFont('Arial', '', 7);
 
 while ($row_producto = $resultadoDetalle->fetch_assoc()) {
     $importe = number_format($row_producto['Cantidad'] * $row_producto['precio'], 2, '.', ',');
-    $totaldispositivos += $row_producto['Cantidad'];
+    $totaldispositivos += $row_producto["Cantidad"];
 
     $pdf->Cell(10, 4, $row_producto['Cantidad'], 0, 0, 'L');
 
     $yInicio = $pdf->GetY();
     $pdf->SetX(20);
-    $pdf->Cell(30, 4, mb_convert_encoding($row_producto['Dispositivos'], 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
+    $pdf->Cell(30, 4, mb_convert_encoding($row_producto["Dispositivos"], 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
     $yFin = $pdf->GetY();
 
     $pdf->SetXY(50, $yInicio);
@@ -72,6 +72,7 @@ while ($row_producto = $resultadoDetalle->fetch_assoc()) {
 $resultadoDetalle->close();
 
 $pdf->Ln();
+
 $pdf->Cell(70, 4, mb_convert_encoding('Número de artículos:  ' . $totaldispositivos, 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
 
 $pdf->SetFont('Arial', 'B', 8);
