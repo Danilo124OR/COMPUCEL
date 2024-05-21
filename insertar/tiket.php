@@ -10,7 +10,7 @@ define('MONEDA_DECIMAL', 'centavos');
 $idVenta = isset($_GET['no_orden']) ? $conexion->real_escape_string($_GET['no_orden']) : 1;
 
 if (filter_var($idVenta, FILTER_VALIDATE_INT) === false) {
-    $idVenta = 2;
+    $idVenta = 1;
 }
 
 $sqlVenta = "SELECT no_orden FROM dispositivos1 WHERE no_orden = $idVenta LIMIT 1";
@@ -18,7 +18,7 @@ $resultado = $conexion->query($sqlVenta);
 $row_venta = $resultado->fetch_assoc();
 $orden = $row_venta['no_orden'];
 
-$sqlDetalle = "SELECT * FROM pagos WHERE id_pago = $idVenta";
+$sqlDetalle = "SELECT *FROM pagos WHERE id_pago = $idVenta";
 $resultadoDetalle = $conexion->query($sqlDetalle);
 $row_ventaD = $resultadoDetalle->fetch_assoc();
 $total = number_format($row_ventaD['total'], 2, '.');
@@ -47,22 +47,22 @@ $pdf->Cell(70, 2, '-------------------------------------------------------------
 $totaldispositivos = 0;
 $pdf->SetFont('Arial', '', 7);
 
-while ($row_producto = $resultadoDetalle->fetch_assoc()) {
-    $importe = number_format($row_producto['Cantidad'] * $row_producto['precio'], 2, '.', ',');
+while ($row = $resultadoDetalle->fetch_assoc()) {
+    $importe = number_format($row['Cantidad'] * $row['precio'], 2, '.', ',');
     $totaldispositivos += $row_producto["Cantidad"];
 
-    $pdf->Cell(10, 4, $row_producto['Cantidad'], 0, 0, 'L');
+    $pdf->Cell(10, 4, $row['Cantidad'], 0, 0, 'L');
 
     $yInicio = $pdf->GetY();
     $pdf->SetX(20);
-    $pdf->Cell(30, 4, mb_convert_encoding($row_producto["Dispositivos"], 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
+    $pdf->Cell(30, 4, mb_convert_encoding($row["Dispositivos"], 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
     $yFin = $pdf->GetY();
 
     $pdf->SetXY(50, $yInicio);
-    $pdf->Cell(30, 4, mb_convert_encoding($row_producto['detalles'], 'ISO-8859-1', 'UTF-8'), 0, 'L');
+    $pdf->Cell(30, 4, mb_convert_encoding($row['detalles'], 'ISO-8859-1', 'UTF-8'), 0, 'L');
 
     $pdf->SetXY(45, $yInicio);
-    $pdf->Cell(15, 4, MONEDA . ' ' . number_format($row_producto['precio'], 2, '.', ','), 0, 0, 'R');
+    $pdf->Cell(15, 4, MONEDA . ' ' . number_format($row['precio'], 2, '.', ','), 0, 0, 'R');
 
     $pdf->SetXY(60, $yInicio);
     $pdf->Cell(15, 4, MONEDA . ' ' . $importe, 0, 1, 'R');
