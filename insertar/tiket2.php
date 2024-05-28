@@ -35,7 +35,8 @@ $result_no_ordenes = $conexion->query($sql_no_ordenes);
 if ($result_no_ordenes->num_rows > 0) {
     while ($row_no_ordenes = $result_no_ordenes->fetch_assoc()) {
         $no_orden = $row_no_ordenes["no_orden"];
-        
+        $nombre_cliente = $row_no_ordenes["Nombre_cliente"];
+
         $total_dispositivos = 0;
         $total_importe = 0.0;
 
@@ -48,8 +49,8 @@ if ($result_no_ordenes->num_rows > 0) {
             //$pdf->Cell(40, 10, 'Ticket');
             $pdf->Ln();
             $pdf->Cell(40, 10, 'Numero de Orden: ' . $no_orden, 0, 1, 'L');
-            $row_first = $result_no_ordenes->fetch_assoc();
-            $pdf->Cell(40, 0, 'Nombre del Cliente: ' . $row_first['Nombre_cliente'], 0, 1, 'L');
+           // $row_first = $result_no_ordenes->fetch_assoc();
+            $pdf->Cell(40, 0, 'Nombre del Cliente: ' . $nombre_cliente, 0, 1, 'L');
             $pdf->Ln(6);  // Salto de línea pequeño
 
 
