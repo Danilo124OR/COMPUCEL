@@ -11,14 +11,11 @@
        <tr><table id="TablaClientes">
         <th class="encabezado">Id de Pago</th> 
         <th class="encabezado">Numero de Orden</th> 
-        <th class="encabezado">Nombre de Cliente</th>
-        <th class="encabezado">Dispositivos</th>
         <th class="encabezado">Cantidad Reparada</th>
         <th class="encabezado">Detalles de Reparación</th>
         <th class="encabezado">Fecha de pago</th>
         <th class="encabezado">Hora de Pago</th>
         <th class="encabezado">Precio</th>
-        <th class="encabezado">Total</th>
         <th> <input type="button" value="Regresar" class="regresar"  onclick="location.href='PagoActualizarFormulario.php';"></th></tr>
     <?php
     include 'PagoActualizaTodo.php';

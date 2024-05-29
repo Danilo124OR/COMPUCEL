@@ -16,7 +16,7 @@
                 <label for="tipo_busqueda">Buscar por:</label>
                 <select id="tipo_busqueda" name="tipo_busqueda">
                     <option value="id_pago">ID del cliente</option>
-                    <option value="Nombre_cliente">Nombre del cliente</option>
+                    <option value="no_orden">Numero de orden</option>
                 </select><br><br>
             </td></tr>
             <tr><td>
@@ -33,14 +33,11 @@
         <table id="TablaClientes" align='center'>
         </tr><th class="encabezado">ID de Pago</th>
         <th class="encabezado">Numero de orden</th>
-        <th class="encabezado"s>Nombre de Cliente</th>
-        <th class="encabezado"s>Dispositivos</th>
         <th class="encabezado"s>Cantidad Reparada</th>
         <th class="encabezado"s>Detalles de Reparación</th>
         <th class="encabezado"s>Fecha del Pago</th>
         <th class="encabezado"s>Hora del Pago</th>
         <th class="encabezado"s>Precio</th>
-        <th class="encabezado"s>Total</th>
     </tr>
     <?php
     include 'PagoBuscarConsulta.php';

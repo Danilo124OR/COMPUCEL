@@ -10,7 +10,7 @@ foreach ($_POST['id_tecnico'] as $ids){
     $editTel=mysqli_real_escape_string($conexion, $_POST['telefono'][$ids]);
     
     $actualizar=$conexion->query("UPDATE técnicos SET Id_tecnico = '$editId', Nombre_tecnico = '$editNom', Teléfono = $editTel WHERE Id_tecnico = '$ids'");
-    echo "<script>alert('Datos actualizados.');</script>";
+    echo "<script>alert('Datos actualizados.'); window.location.href = 'TecnicosActualizarFormulario.php';</script>";
 }
 $resultado = $conexion->query("SELECT * FROM técnicos");
 }

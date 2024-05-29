@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['buscar'])) {
     $valor_busqueda = $_POST["valor_busqueda"];
 
     // Consulta SQL según el tipo de búsqueda
-    if ($tipo_busqueda == "id_pago") {
-        $sql = "SELECT id_pago, no_orden, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio FROM pagos WHERE id_pago = ?";
-    } else if ($tipo_busqueda == "no_orden") {
-        $sql = "SELECT id_pago, no_orden, Cantidad_reparada, detalles_reparacion, Fecha_pago, Hora_pago, precio FROM pagos WHERE no_orden = ?";
+    if ($tipo_busqueda == "id_usuario") {
+        $sql = "SELECT Id_Usuario, Nombre, Clave FROM usuarios WHERE  Id_Usuario = ?";
+    } else if ($tipo_busqueda == "nombre") {
+        $sql = "SELECT  Id_Usuario, Nombre, Clave FROM usuarios WHERE Nombre LIKE ?";
         $valor_busqueda = "%" . $valor_busqueda . "%"; // Añadir comodines para búsqueda parcial
     }
 
@@ -29,18 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['buscar'])) {
     // Mostrar resultados y formulario para actualizar
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-        $idpago = $row['id_pago'];   
-        $orden = $row['no_orden'];
-        $cantidad = $row['Cantidad_reparada'];
-        $detalle = $row['detalles_reparacion'];
-        $fecha = $row['Fecha_pago'];
-        $hora = $row['Hora_pago'];
-        $precio = $row['precio'];
+        $Id = $row['Id_Usuario'];
+        $Nombre = $row['Nombre'];
+        $clave = $row['Clave'];
         }
 
     } else {
         //echo "No se encontraron resultados.";
-        echo "<script>alert('No se encontaron resultados.'); window.location.href = 'PagoActualizarFormulario.php';</script>";
+        echo "<script>alert('No se encontaron resultados.'); window.location.href = 'usuarioActualizarFormulario.php';</script>";
     }
 
     // Cerrar la conexión y liberar recursos

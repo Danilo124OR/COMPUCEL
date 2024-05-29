@@ -39,6 +39,22 @@ div.contenedordispositivos{
     border-radius: 0.5%;
 }
 
+div.contenedorpagos{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color : white;
+    position: absolute;
+    overflow: auto;
+    top: 79%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 800px;/*Ancho*/ 
+    max-height: 800px;
+    border-radius: 0.5%;
+}
+
+
+
 #contenedorActualizarCliente{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -154,7 +170,8 @@ div.contenedorAmplio{
         border-radius: 10px;
         position: absolute;
         transform: bottom;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: auto;  
         text-align: left;
         font-size: 20px;
         font-family: Arial, Helvetica, sans-serif;

@@ -2,20 +2,20 @@
 <html>
 <head>
     <link rel="stylesheet" href="../estilos/estiloTablas.css">
-    <title>Buscar Pagos</title>
+    <title>Buscar usuario</title>
 </head>
 <body>
     <div class="contenedor">
-        <form action="PagoEliminarConsulta.php" method="POST">
+        <form action="usuarioEliminarConsulta.php" method="POST">
         <table>
             <tr><td>
-                <h2>Buscar y Eliminar Pago</h2>
+                <h2>Buscar y Eliminar usuario</h2>
             </td></tr>
             <tr><td>
                 <label for="tipo_busqueda">Buscar por:</label>
                 <select id="tipo_busqueda" name="tipo_busqueda">
-                    <option value="id_pago">Numero de Pago</option>
-                    <option value="no_orden">Numero de Orden</option>
+                    <option value="id_usuario">ID del usuario</option>
+                    <option value="nombre">Nombre del usuario</option>
                 </select><br><br>
             </td></tr>
             <tr><td>

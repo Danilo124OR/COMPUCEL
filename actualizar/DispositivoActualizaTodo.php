@@ -8,8 +8,8 @@ foreach ($_POST['no_orden'] as $ids){
 
     $editorden=mysqli_real_escape_string($conexion, $_POST['no_orden'][$ids]);
     $editidtec=mysqli_real_escape_string($conexion, $_POST['ID_tecnico'][$ids]);
-    $editnomtec=mysqli_real_escape_string($conexion, $_POST['Nombre_Técnico'][$ids]);
-    $editidcli=mysqli_real_escape_string($conexion, $_POST['Id_cliente'][$ids]);
+    $editnomtec=mysqli_real_escape_string($conexion, $_POST['Nombre_técnico'][$ids]);
+    $editidcli=mysqli_real_escape_string($conexion, $_POST['id_cliente'][$ids]);
     $editnomcli=mysqli_real_escape_string($conexion, $_POST['Nombre_cliente'][$ids]);
     $editmodelo=mysqli_real_escape_string($conexion, $_POST['Modelo'][$ids]);
     $edittipo=mysqli_real_escape_string($conexion, $_POST['Tipo_dispositivo'][$ids]);
@@ -22,7 +22,7 @@ foreach ($_POST['no_orden'] as $ids){
 
 
     $actualizar=$conexion->query("UPDATE dispositivos1 SET no_orden='$editorden', ID_tecnico='$editidtec', Nombre_técnico='$editnomtec', id_cliente='$editidcli', Nombre_cliente='$editnomcli', Modelo='$editmodelo', Tipo_dispositivo='$edittipo', Marca='$editmarca', IMEI='$editimei', Fecha_ingreso='$editingreso', Fecha_entrega='$editentrega', detalles_reparaciones='$editdetalle', estado_dispositivo='$editestado' WHERE no_orden='$ids'");
-    echo "<script>alert('Datos actualizados.');</script>";
+    echo "<script>alert('Datos actualizados.'); window.location.href = 'DispositivoFormulario.php';</script>";
 }
 $resultado = $conexion->query("SELECT * FROM dispositivos1");
 }
