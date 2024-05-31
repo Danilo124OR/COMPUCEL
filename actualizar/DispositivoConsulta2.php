@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar'])) {
     // Verificar si se recibió correctamente el ID del cliente
     if(isset($_POST['no_orden'])) {
         $noorden = $_POST['no_orden'];
-
         // Recibir datos del formulario de actualización y validarlos
         $idtecnico = $_POST['Id_tecnico'];
         $nomtecnico = $_POST['Nombre_técnico'];

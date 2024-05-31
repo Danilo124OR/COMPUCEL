@@ -52,9 +52,7 @@
 
                 <tr><td>
                 <input type="text" name = "precio" placeholder = "Precio" class = "campo" value = "<?php if(isset($precio)){echo $precio;}?>">
-                </td></tr>
-
-            
+                </td></tr>            
                 <td>
                 <input type="submit" name = "actualizar" value = "Editar" class = "campo">
                 </td></tr>
@@ -65,7 +63,7 @@
             <?php include 'PagoActualizarConsulta.php';?>
         </form>
     </div>
-    <?php include '../principal/menu.html'; include 'PagoActualizarConsulta.php';?>
+    <?php include '../principal/menu.html'; include 'PagoActualizarConsulta2.php';?>
     
 </body>
 </html>

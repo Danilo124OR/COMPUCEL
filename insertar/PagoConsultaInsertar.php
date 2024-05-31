@@ -1,6 +1,9 @@
 <?php
 include("../principal/conexion_bd.php");
 require('../fpdf186/fpdf.php');  // Asegúrate de que la ruta sea correcta
+define('MONEDA', '$');
+define('MONEDA_LETRA', 'pesos');
+define('MONEDA_DECIMAL', 'centavos');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir los datos del formulario
@@ -26,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         is_array($hora) && is_array($precio)) {
         
         $all_inserted = true;
+        $ordenes_pagadas = [];
+
         for ($i = 0; $i < count($id_pago); $i++) {
             $idPago = $id_pago[$i];
             $noOrden = $no_orden[$i];
@@ -57,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "<script>alert('Error al insertar datos: " . $conexion->error . "'); window.location.href = 'PagoFormularioInsertar.php';</script>";
                         $all_inserted = false;
                         break;
+                    } else {
+                        $ordenes_pagadas[] = $noOrden;
                     }
                 }
             }
@@ -81,11 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pdf->MultiCell(70, 5, 'CODIGO POSTAL: 40060', 0, 'C');
             $pdf->Ln(1);
 
-            // Obtener el primer número de orden para los detalles del cliente
-            $primer_no_orden = $no_orden[0];
-
             // Consulta para obtener los datos del cliente y los pagos
-            $sql_cliente = "SELECT Nombre_cliente FROM dispositivos1 WHERE no_orden = '$primer_no_orden'";
+            $sql_cliente = "SELECT Nombre_cliente FROM dispositivos1 WHERE no_orden = '".$ordenes_pagadas[0]."'";
             $result_cliente = $conexion->query($sql_cliente);
 
             if ($result_cliente->num_rows > 0) {
@@ -96,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $total_importe = 0.0;
 
                 $pdf->Ln();
-                $pdf->Cell(40, 10, 'Numero de Orden: ' . $primer_no_orden, 0, 1, 'L');
+                $pdf->Cell(40, 10, 'Numero de Orden: ' . implode(', ', $ordenes_pagadas), 0, 1, 'L');
                 $pdf->Cell(40, 0, 'Nombre del Cliente: ' . $nombre_cliente, 0, 1, 'L');
                 $pdf->Ln(6);  // Salto de línea pequeño
 
@@ -110,37 +114,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $pdf->SetFont('Arial', '', 8);
                 for ($i = 0; $i < count($id_pago); $i++) {
-                    if ($no_orden[$i] == $primer_no_orden) {
-                        $cantidad = $cantidad[$i];
-                        $precio = $precio[$i];
-                        $fecha = $fecha[$i];
-                        $hora = $hora[$i];
-                        $importe = $cantidad * $precio;
-                        $total_dispositivos += $cantidad;
-                        $total_importe += $importe;
-                        $yFin = $pdf->GetY();
+                    $cantidad_reparada = $cantidad[$i];
+                    $detalle_reparacion = $detalle[$i];
+                    $precio_pago = $precio[$i];
+                    $importe = $cantidad_reparada * $precio_pago;
+                    $total_dispositivos += $cantidad_reparada;
+                    $total_importe += $importe;
+                    $yFin = $pdf->GetY();
 
-                        $pdf->Cell(12, 4, $cantidad, 0, 0, 'L');
-                        $yInicio = $pdf->GetY();
-                        $x = $pdf->GetX();
-                        $pdf->MultiCell(20, 4, mb_convert_encoding($detalle[$i], 'ISO-8859-1', 'UTF-8'), 0, 'L');
-                        $yFin = $pdf->GetY();
-                        $pdf->SetXY($x + 20, $yInicio);
-                        $pdf->Cell(18, 4, ' ' . number_format($precio, 2, '.', ','), 0, 0, 'L');
-                        $pdf->Cell(10, 4, ' ' . $importe, 0, 1, 'L');
-                        $pdf->SetY($yFin);
-                    }
+                    $pdf->Cell(12, 4, $cantidad_reparada, 0, 0, 'L');
+                    $yInicio = $pdf->GetY();
+                    $x = $pdf->GetX();
+                    $pdf->MultiCell(20, 4, mb_convert_encoding($detalle_reparacion, 'ISO-8859-1', 'UTF-8'), 0, 'L');
+                    $yFin = $pdf->GetY();
+                    $pdf->SetXY($x + 20, $yInicio);
+                    $pdf->Cell(18, 4, MONEDA . ' ' . number_format($precio_pago, 2, '.', ','), 0, 0, 'L');
+                    $pdf->Cell(10, 4, MONEDA . ' ' . number_format($importe, 2, '.', ','), 0, 1, 'L');
+                    $pdf->SetY($yFin);
                 }
 
                 $pdf->Ln();
                 $pdf->Cell(70, 4, mb_convert_encoding('Número de artículos:  ' . $total_dispositivos, 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
                 $pdf->SetFont('Arial', 'B', 8);
-                $pdf->Cell(60, 5, 'Total: ' . number_format((float)$total_general, 2, '.', ','), 0, 1, 'L');
-                $pdf->Cell(60, 5, 'Pago con: ' . number_format((float)$pago_con, 2, '.', ','), 0, 1, 'L');
-                $pdf->Cell(60, 5, 'Cambio: ' . number_format((float)$cambio, 2, '.', ','), 0, 1, 'L');
+                $pdf->Cell(60, 5, 'Total: '.MONEDA. number_format((float)$total_general, 2, '.', ','), 0, 1, 'L');
+                $pdf->Cell(60, 5, 'Pago con: '.MONEDA . number_format((float)$pago_con, 2, '.', ','), 0, 1, 'L');
+                $pdf->Cell(60, 5, 'Cambio: '.MONEDA . number_format((float)$cambio, 2, '.', ','), 0, 1, 'L');
             }
 
             $pdf->Output();
+
+            // Actualizar el estado de los dispositivos a 'reparado'
+            foreach ($ordenes_pagadas as $orden) {
+                $sql_update = "UPDATE dispositivos1 SET estado_dispositivo = 'Reparado' WHERE no_orden = '$orden'";
+                if ($conexion->query($sql_update) === FALSE) {
+                    echo "<script>alert('Error al actualizar el estado de reparación: " . $conexion->error . "');</script>";
+                }
+            }
         }
     }
 }

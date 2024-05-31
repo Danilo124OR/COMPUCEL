@@ -26,7 +26,7 @@
                 <h4>Información</h4>
                 </td></tr>
                 <tr><td><br>
-                <input type="text"name = "no_orden" readonly placeholder = "no_orden" class = "campo" value = "<?php include 'DispositivoConsulta.php'; if(isset($orden)){echo $orden;}?>">
+                <input type="text" name = "no_orden" readonly placeholder = "no_orden" class = "campo" value = "<?php include 'DispositivoConsulta.php'; if(isset($orden)){echo $orden;}?>">
                 </td></tr>
 
                 <tr><td>

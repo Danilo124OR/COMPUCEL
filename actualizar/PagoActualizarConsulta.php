@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['buscar'])) {
         $hora = $row['Hora_pago'];
         $precio = $row['precio'];
         }
-
     } else {
         //echo "No se encontraron resultados.";
         echo "<script>alert('No se encontaron resultados.'); window.location.href = 'PagoActualizarFormulario.php';</script>";

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['actualizar'])) {
         $fecha = $_POST['Fecha_pago'];
         $hora = $_POST['Hora_pago'];
         $precio = $_POST['precio'];
-
+     
 
         // Validamos que los campos no estén vacíos
         if(empty($noorden) || empty($cantidad) || empty($detalle) || empty($fecha) || empty($hora) || empty($precio) ) {

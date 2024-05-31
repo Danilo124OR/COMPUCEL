@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<td class='celdas'>" . $row["precio"] . "</td>";
 
             echo "<td><input type='submit' name='eliminar' class='campo' value='Eliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este cliente?\")'></td>"; // Botón de eliminación con confirmación
-            echo "<input type='hidden' name='no_orden' value='" . $row["id_pago"] . "'>"; // Campo oculto para pasar el id_cliente
+            echo "<input type='hidden' name='idPago' value='" . $row["id_pago"] . "'>"; // Campo oculto para pasar el id_cliente
             
             echo "</tr>";
             
